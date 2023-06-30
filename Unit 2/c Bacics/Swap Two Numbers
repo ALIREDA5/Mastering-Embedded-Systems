@@ -1,0 +1,25 @@
+/*
+ *  Swap Two Numbers.c
+ *
+ *  Created on: Jun26,2023
+ *  Author: Ali_Reda
+ */
+
+#include "stdio.h"
+#include "stdlib.h"
+
+
+int main(void)
+{
+	float x,y,temp;
+	printf("Enter two numbers \n");
+	fflush(stdout);
+	scanf("%f %f",&x,&y);
+	temp=x;
+	x=y;
+	y=temp;
+	printf("After swapping x = %f \n",x);
+	printf("After swapping y = %f",y);
+
+	return 0;
+}
