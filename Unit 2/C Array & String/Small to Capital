@@ -1,0 +1,46 @@
+/*
+
+ * string length.c
+ *
+ *  Created on: Jun 30, 2023
+ *  Author: Ali Reda
+ */
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "conio.h"
+#include "string.h"
+
+int main(void)
+{
+    char a[10]="ali rEda";
+	int x = 'a' - 'A';
+
+	int i=0;
+	while(a[i]!='\0')
+	{
+		if(a[i]==' ')
+		{
+		    i++;
+			continue;
+
+		}
+		if(a[i]< 'a')
+		{
+		    i++;
+			continue;
+
+		}
+		a[i] = a[i] - x;
+		i++;
+	}
+	printf("string  : %s \n", a);
+
+	//******************************************
+
+	 strupr(a);
+	printf("string  : %s\n", a);
+
+
+	return 0;
+}

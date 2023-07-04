@@ -1,0 +1,34 @@
+/*
+
+ * main.c
+ *
+ *  Created on: Jun 30, 2023
+ *  Author: Ali Reda
+ */
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "conio.h"
+
+int main(void)
+{
+    float x,y=0;
+    char c;
+    do
+    {
+    	printf("Enter x value \n");
+    	fflush(stdout);fflush(stdin);
+    	scanf("%f",&x);
+    	y = 5*x*x + 3*x + 5;
+    	printf("y(%f) = %f\n",x,y);
+    	printf("if you want evaluate again enter (y/n) :");
+    	fflush(stdout);fflush(stdin);
+        c = getchar();
+
+    }
+    while(c =='y');
+
+	return 0;
+}
+
+

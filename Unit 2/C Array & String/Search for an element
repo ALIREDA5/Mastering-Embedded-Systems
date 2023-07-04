@@ -1,0 +1,47 @@
+/*
+ * Search for array element.c
+ *
+ * Created on: Jun 30, 2023
+ *  Author: Ali Reda
+ */
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "conio.h"
+#include "string.h"
+
+int main(void)
+{
+
+	printf("Enter number of elements : ");
+	fflush(stdout);
+	int x;
+	scanf("%d",&x);
+	float arr[100];
+	int i;
+	for(i=0 ; i<x ; i++)
+	{
+		scanf("%f" , &arr[i]);
+	}
+	//Enter element to be searched for in the array
+	printf("Enter element to be searched for : ");
+	fflush(stdout);
+	float y;
+	scanf("%f",&y);
+	//Search for that element
+	for(i=0 ; i<x ; i++)
+		{
+			if(y==arr[i])
+			{
+				printf("Element found at location : %d", i);
+				break;
+			}
+			else
+			{
+				printf("Not Found");
+				break;
+			}
+		}
+
+	return 0;
+}

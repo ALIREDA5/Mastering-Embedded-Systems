@@ -1,0 +1,54 @@
+/*
+
+ * string to float.c
+ *
+ * Created on: Jun 30, 2023
+ *  Author: Ali Reda
+ */
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "conio.h"
+#include "string.h"
+
+int main(void)
+{
+	printf("Enter first matrix : \n");
+	int i,j=0;
+	float arr1[2][2];
+	for(i=0 ; i<2 ; i++)
+	{
+		for(j=0 ; j<2 ; j++)
+		{
+			printf("Enter element a1[%d][%d] :", i+1,j+1);
+			fflush(stdout);
+			scanf("%f",&arr1[i][j]);
+		}
+	}
+	printf("\n");
+
+	printf("Enter second matrix : \n");
+	float arr2[2][2];
+	for(i=0 ; i<2 ; i++)
+	{
+		for(j=0 ; j<2 ; j++)
+		{
+			printf("Enter element a2[%d][%d] :", i+1,j+1);
+			fflush(stdout);
+			scanf("%f",&arr2[i][j]);
+		}
+	}
+	printf("sum array : \n");
+	for(i=0 ; i<2 ; i++)
+		{
+			for(j=0 ; j<2 ; j++)
+			{
+				printf("%f  ", arr1[i][j]+arr2[i][j]);
+			}
+			printf("\n");
+		}
+
+
+
+	return 0;
+}

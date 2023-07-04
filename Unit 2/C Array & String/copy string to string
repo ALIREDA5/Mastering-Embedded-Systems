@@ -1,0 +1,35 @@
+/*
+
+ * main.c
+ *
+ *  Created on: Jun 30, 2023
+ *  Author: Ali Reda
+ */
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "conio.h"
+#include "string.h"
+
+int main(void)
+{
+	char a[10]="ALI REDA";
+	char b[10];
+	int i=0;
+	while(a[i]!=0)
+	{
+		b[i]=a[i];
+		i++;
+	}
+	b[i]=0; //Add Null Terminator to the End of b
+	printf("%s", b);
+	
+	*****************************************
+	
+	char a[10]="ALI REDA";
+	char b[10];
+	strcpy(b,a);
+	printf("%s", b);
+
+	return 0;
+}

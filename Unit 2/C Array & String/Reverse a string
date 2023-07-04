@@ -1,0 +1,27 @@
+/*
+ * Reverse a string.c
+ *
+ * Created on: Jun30, 2023
+ *  Author: Ali_Reda
+ */
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "conio.h"
+#include "string.h"
+
+int main(void)
+{
+	printf("Enter the string :");
+	fflush(stdout);
+	char a[100];
+	gets(a);
+	int i;
+	printf("Reversed string :");
+	for(i=strlen(a)-1 ; i>=0 ; i--)
+	{
+		printf("%c",a[i]);
+	}
+
+	return 0;
+}

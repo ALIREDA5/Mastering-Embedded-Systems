@@ -1,0 +1,56 @@
+/*
+
+ * Transpose of Matrix.c
+ *
+ * Created on: Jun 30, 2023
+ *  Author: Ali Reda
+ */
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "conio.h"
+#include "string.h"
+
+int main(void)
+{
+	printf("Enter  n. of Rows & n. of columns : \n");
+	fflush(stdout);
+	int x,y;
+	float arr[10][10];
+	scanf("%d", &x);
+	scanf("%d", &y);
+	int i,j;
+	for(i=0 ; i<x ; i++)
+	{
+		for(j=0 ; j<y ; j++)
+		{
+			printf("array[%d][%d] = ", i+1, j+1);
+			fflush(stdout);
+			scanf("%f", &arr[i][j]);
+		}
+	}
+	printf("\n Matrix : \n");
+	for(i=0 ; i<x ; i++)
+	{
+		for(j=0 ; j<y ; j++)
+		{
+			printf("%f ", arr[i][j]);
+
+		}
+		printf("\n ");
+	}
+	printf("\n Transpose Matrix : \n");
+	for(j=0 ; j<y ; j++)
+	{
+		for(i=0 ; i<x ; i++)
+		{
+			printf("%f ", arr[i][j]);
+
+		}
+		printf("\n");
+	}
+
+
+
+	return 0;
+}

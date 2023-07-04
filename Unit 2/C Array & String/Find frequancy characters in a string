@@ -1,0 +1,34 @@
+/*
+ * Find frequency characters in a string.c
+ *
+ * Created on: Jun30, 2023
+ *  Author: Ali_Reda
+ */
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "conio.h"
+#include "string.h"
+
+int main(void)
+{
+	printf("Enter the string :");
+	fflush(stdout);
+	char a[100];
+	gets(a);
+	printf("Enter the character to find its frequency : ");
+	fflush(stdout);
+	char c;
+	scanf("%c", &c);
+	int i,x=0;
+	for(i=0 ; i<strlen(a) ; i++)
+	{
+		if(c==a[i])
+		{
+			x++;
+		}
+	}
+	printf("Frequency of %c = %d", c,x);
+
+	return 0;
+}

@@ -1,0 +1,30 @@
+/*
+
+ * string length.c
+ *
+ *  Created on: Jun 30, 2023
+ *  Author: Ali Reda
+ */
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "conio.h"
+#include "string.h"
+
+int main(void)
+{
+	char a[10]="ALI REDA";
+	int i=0;
+	while(a[i]!=0)
+	{
+		i++;
+	}
+	printf("string length : %d \n", i);
+
+	//******************************************
+	int y = strlen(a);
+	printf("string length : %d \n", y);
+
+
+	return 0;
+}

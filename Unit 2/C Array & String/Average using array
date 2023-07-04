@@ -1,0 +1,37 @@
+/*
+
+ * string to float.c
+ *
+ * Created on: Jun 30, 2023
+ *  Author: Ali Reda
+ */
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "conio.h"
+#include "string.h"
+
+int main(void)
+{
+	printf("Enter number of elements : ");
+	fflush(stdout);
+	int x;
+	float sum=0;
+	scanf("%d",&x);
+	int i;
+	float arr[100];
+	for(i=0 ; i<x ; i++)
+	{
+		printf("Enter number %d :", i+1);
+		fflush(stdout);
+		scanf("%f" , &arr[i]);
+	}
+	for(i=0 ; i<x ; i++)
+	{
+		sum += arr[i];
+	}
+	float average = sum / x ;
+	printf("average = %f", average);
+
+	return 0;
+}

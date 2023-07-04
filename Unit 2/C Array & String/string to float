@@ -1,0 +1,21 @@
+/*
+
+ * string to float.c
+ *
+ * Created on: Jun 30, 2023
+ *  Author: Ali Reda
+ */
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "conio.h"
+#include "string.h"
+
+int main(void)
+{
+	char str[10]="1245.25 KG";
+	int x=12;
+	float y= atof(str) + x ;
+	printf("%f", y);
+	return 0;
+}
