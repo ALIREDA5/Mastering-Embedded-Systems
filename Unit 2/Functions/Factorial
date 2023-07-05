@@ -1,0 +1,38 @@
+/*
+ * factorial.c
+ *
+ * Created on: Jul 4, 2023
+ *  Author: Ali Reda
+ */
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "conio.h"
+#include "string.h"
+
+int factorial (int n);
+int main(void)
+{
+	printf("Enter positive Integer : ");
+	fflush(stdout);
+	int n;
+	scanf("%d", &n);
+	printf("Factorial of %d = %d ", n , factorial(n));
+	return 0;
+}
+
+int factorial (int n)
+{
+	int i,fac=1;
+	for(i=n ; i>1 ; i--)
+	{
+		fac *= i;
+	}
+	return fac;
+}
+//****************************************Using Recurion ************************//
+int factorial (int n)
+{
+	if(n != 1)
+	return n * factorial(n-1);
+}

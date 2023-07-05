@@ -1,0 +1,56 @@
+/*
+ * Reverse text using recursion.c
+ *
+ * Created on: Jul 4, 2023
+ *  Author: Ali Reda
+ */
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "conio.h"
+#include "string.h"
+
+void reverse(char str[], int len);
+
+int main(void)
+{
+	char str[]="ali reda";
+	int n= strlen(str);
+	reverse(str,n);
+
+	return 0;
+}
+
+void reverse(char str[], int len)
+{
+	printf("%c", str[len-1]);
+	len--;
+	if(len != 0)
+	{
+		reverse(str,len);
+	}
+}
+//***************without strings********//
+void reverse(void);
+
+int main(void)
+{
+	printf("Enter text : ");
+	fflush(stdout);
+	reverse();
+
+	return 0;
+}
+
+void reverse(void)
+{
+	char c;
+	scanf("%c", &c);
+	fflush(stdout);
+	if(c != '\n')
+	{
+		reverse();
+		printf("%c" ,c);
+	}
+}
+

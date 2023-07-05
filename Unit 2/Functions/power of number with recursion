@@ -1,0 +1,40 @@
+/*
+ *power of number using recursion.c
+ *
+ * Created on: Jul 4, 2023
+ *  Author: Ali Reda
+ */
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "conio.h"
+#include "string.h"
+
+int power(int n , int p);
+int main(void)
+{
+	printf("Enter base number : ");
+	fflush(stdout);
+	int n;
+	scanf("%d", &n);
+	printf("Enter power number : ");
+	fflush(stdout);
+	int p;
+	scanf("%d", &p);
+	int pow = power(n,p);
+	printf("%d ^ %d = %d", n, p, pow);
+
+
+	return 0;
+}
+
+int power(int n , int p)
+{
+	if(p>0)
+	{
+		return n * power(n , p-1);
+	}
+	else
+	return 1;
+}
+
