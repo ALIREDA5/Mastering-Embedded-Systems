@@ -1,0 +1,48 @@
+/*
+ * main.c
+ *
+ *  Created on: Jul 7, 2023
+ *      Author: Ali Reda
+ */
+
+#include "stdio.h"
+#include "stdlib.h"
+
+typedef struct s_complex_number {
+	float m_R; // real part member
+	float m_I; // imaginary part member
+}complex_number;
+
+complex_number read_complex (char text[])
+{
+	complex_number a;
+	printf("Enter %s complex number Ex(-3 , 5) : ", text);
+	fflush(stdout);
+	scanf("%f %f", &a.m_R , &a.m_I);
+	return a;
+}
+
+complex_number add_complex (complex_number a , complex_number b)
+{
+	complex_number c;
+	c.m_I = a.m_I + b.m_I;
+	c.m_R = a.m_R + b.m_R;
+	return c;
+}
+
+void print_complex (char name [] , complex_number a)
+{
+	printf("%s = %f + j %f ", name , a.m_R , a.m_I);
+
+}
+
+int main(void)
+{
+	complex_number a;
+	complex_number b,c;
+	a = read_complex("a");
+	b = read_complex("b");
+	c = add_complex(a,b);
+    print_complex("c", c);
+	return 0;
+}

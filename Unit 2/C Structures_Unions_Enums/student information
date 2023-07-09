@@ -1,0 +1,37 @@
+/*
+ *  student information.c
+ *
+ *  Created on: Jul 4, 2023
+ *  Author: Ali Reda
+ */
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "conio.h"
+#include "string.h"
+
+typedef struct s_student{
+	char name[20];
+	int roll;
+	float marks;
+}s_student;
+
+int main(void)
+{
+	s_student student1;
+	printf("Enter the student information : \n");
+	printf("Enter the name :");
+	fflush(stdout);
+	gets(student1.name);
+	printf("Enter the roll :");
+	fflush(stdout);
+	scanf("%d", &student1.roll);
+	printf("Enter the marks :");
+	fflush(stdout);
+	scanf("%f", &student1.marks);
+	printf("Displaying information : \n");
+	printf("Name : %s \n Roll number : %d \n Marks : %f" ,
+			student1.name,student1.roll,student1.marks );
+	return 0;
+}
+

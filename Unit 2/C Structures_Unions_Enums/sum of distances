@@ -1,0 +1,51 @@
+/*
+ *  sum of distances.c
+ *
+ *  Created on: Jul 4, 2023
+ *  Author: Ali Reda
+ */
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "conio.h"
+#include "string.h"
+
+typedef struct s_distance{
+	float feet;
+	float inch;
+}s_distance;
+
+int main(void)
+{
+	s_distance distance1;
+	s_distance distance2;
+	s_distance sum_distance;
+	printf("Enter first distance : \n");
+	printf("Enter feet :");
+	fflush(stdout);
+	scanf("%f", &distance1.feet);
+	printf("Enter inch :");
+	fflush(stdout);
+	scanf("%f", &distance1.inch);
+	printf("Enter second distance : \n");
+	printf("Enter feet :");
+	fflush(stdout);
+	scanf("%f", &distance2.feet);
+	printf("Enter inch :");
+	fflush(stdout);
+	scanf("%f", &distance2.inch);
+	sum_distance.feet = distance1.feet + distance2.feet;
+	sum_distance.inch = distance1.inch + distance2.inch;
+	int x;
+	if(sum_distance.inch >=12)
+	{
+		sum_distance.inch /= 12 ;
+		x = sum_distance.inch;
+		sum_distance.inch = sum_distance.inch - x;
+	}
+	sum_distance.feet += x;
+	printf("sum of distances = %f' - %f\"", sum_distance.feet, sum_distance.inch);
+
+	return 0;
+}
+
