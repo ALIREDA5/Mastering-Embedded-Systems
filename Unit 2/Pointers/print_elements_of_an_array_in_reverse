@@ -1,0 +1,38 @@
+/*
+ * print the elements of an array in reverse
+   order.c
+ *
+ *  Created on: Jul 12, 2023
+ *      Author: Ali Reda
+ */
+
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "conio.h"
+#include "string.h"
+
+int main(void)
+{
+	printf("Enter array size : \n");
+	fflush(stdout);
+	int size;
+	scanf("%d", &size);
+	printf("Enter array : \n");
+	int i;
+	int arr[15];
+	for(i=0 ; i<size ; i++)
+	{
+		printf("element(%d) =  ", i+1);
+		fflush(stdout);
+		scanf("%d", &arr[i]);
+	}
+	printf("Array in reverse \n");
+	int *ptr = arr;
+	for(i=size-1 ; i>=0 ; i--)
+		{
+			printf("element(%d) = %d \n",i+1 , *(ptr+i));
+		}
+
+    return 0;
+}

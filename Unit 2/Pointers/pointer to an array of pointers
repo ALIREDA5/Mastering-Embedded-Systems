@@ -1,0 +1,28 @@
+/*
+ * pointer to an array which contents
+   are pointer to structure.c
+ *
+ *  Created on: Jul 12, 2023
+ *      Author: Ali Reda
+ */
+
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "conio.h"
+#include "string.h"
+
+struct employee{
+	char *str;
+	int id;
+};
+
+struct employee emp1={"ali", 3212}, emp2={"ahmed", 2511};
+struct employee (*arr[])={&emp1 ,&emp2};
+struct employee (*(*ptr)[])= &arr;
+
+int main(void)
+{
+	printf("%s   \n%d", (**(*ptr+1)).str,(**(*ptr+1)).id);
+    return 0;
+}

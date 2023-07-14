@@ -1,0 +1,38 @@
+/*
+ * main.c
+ *
+ *  Created on: Jul 12, 2023
+ *      Author: Ali Reda
+ */
+
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "conio.h"
+#include "string.h"
+
+
+struct s_dataset{
+	unsigned char a;
+	unsigned int b;
+};
+
+struct s_dataset data;
+
+void print_data_range(char *base_address , int size )
+{
+	int i;
+	for(i=0 ; i<size ; i++)
+	{
+	printf("%p \t %x \n", base_address,(unsigned char)*base_address);
+	base_address ++;
+	}
+}
+
+int main(void){
+
+	data.a=0x12;
+	data.b=0xfffff4ff;
+	print_data_range(&data , sizeof(data));
+	return 0;
+}

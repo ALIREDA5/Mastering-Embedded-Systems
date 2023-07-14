@@ -1,0 +1,27 @@
+/*
+ * Alphabets printed using pointers.c
+ *
+ *  Created on: Jul 12, 2023
+ *      Author: Ali Reda
+ */
+
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "conio.h"
+#include "string.h"
+
+int main(void)
+{
+    char a = 'A';
+    char *ptr = &a;
+    int i;
+    printf("Alphabets : \nA ");
+    for(i=0 ; i<25 ; i++)
+    {
+    	*ptr += 1;
+    	printf("%c  ", *ptr);
+    }
+
+    return 0;
+}

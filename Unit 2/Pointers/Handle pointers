@@ -1,0 +1,27 @@
+/*
+ * Handle pointers.c
+ *
+ *  Created on: Jul 12, 2023
+ *      Author: Ali Reda
+ */
+
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "conio.h"
+#include "string.h"
+
+int main(void)
+{
+
+    int m = 32;
+	printf("address of m : %x \n m value = %d \n", (unsigned int)&m, m);
+	int *ab = &m;
+	printf("address of ab : %x \ncontent of pointer ab = %d\n",(unsigned int) ab, *ab);
+    m = 5;
+    printf("address of ab : %x \ncontent of pointer ab = %d\n",(unsigned int) ab, *ab);
+    *ab = 12;
+	printf("address of m : %x \n m value = %d\n", (unsigned int)&m, m);
+	
+	return 0;
+}

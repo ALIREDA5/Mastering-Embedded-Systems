@@ -1,0 +1,55 @@
+/*
+ * fast&slow_update.c
+ *
+ *  Created on: Jul 12, 2023
+ *      Author: Ali Reda
+ */
+
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "conio.h"
+#include "string.h"
+
+typedef struct s_student{
+	char name[20];
+	double m_degrees[5];
+	double m_total;
+}s_student;
+
+s_student slow_update(s_student student)
+{
+	student.m_total = 0.0;
+	int i;
+	for(i=0 ; i<5 ; i++)
+	{
+		student.m_total += student.m_degrees[i];
+	}
+	return student;
+}
+
+void fast_update(s_student *student)
+{
+	student->m_total = 0.0;
+	int i;
+	for(i=0 ; i<5 ; i++)
+	{
+		student->m_total += student->m_degrees[i];
+	}
+}
+
+
+int main(void)
+{
+	s_student student1 = {"ali reda", {10,9,8,8,10}, 0};
+
+	// slow update to m_total degree without pointers
+	student1 = slow_update(student1);
+	printf("student1 : \n name : %s \ntotal degrees : %2.2lf\n", student1.name, (double)student1.m_total);
+
+	// fast update to m_total degree with pointers
+	fast_update(&student1);
+	printf("student1 : \n name : %s \ntotal degrees : %2.2lf\n", student1. name, (double)student1.m_total);
+
+	return 0;
+}

@@ -1,0 +1,46 @@
+/*
+ * compare with void pointers.c
+ *
+ *  Created on: Jul 12, 2023
+ *      Author: Ali Reda
+ */
+
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "conio.h"
+#include "string.h"
+
+int universal_compare(void *n1 , void *n2 , int type)
+{
+	int i;
+	switch(type){
+	case 1 : // int type
+		if(*(int*)n1 == *(int*)n2)
+			i=0;
+		else if(*(int*)n1 > *(int*)n2)
+			i=1;
+		else i=-1;
+		break;
+
+	case 2 : // float type
+		if(*(float*)n1 == *(float*)n2)
+			i=0;
+		else if(*(float*)n1 > *(float*)n2)
+			i=1;
+		else i=-1;
+		break;
+
+	}
+	return i;
+}
+
+	int main(void)
+	{
+		int x=8, y=8.5;
+		int z = universal_compare(&x,&y,1);
+		printf("%d", z);
+
+
+		return 0;
+	}

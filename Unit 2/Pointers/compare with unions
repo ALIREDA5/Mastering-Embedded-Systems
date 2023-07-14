@@ -1,0 +1,55 @@
+/*
+ * compare with unions.c
+ *
+ *  Created on: Jul 12, 2023
+ *      Author: Ali Reda
+ */
+
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "conio.h"
+#include "string.h"
+
+enum types{Int , Float , Double};
+
+union numtype{
+	int type_int;
+	float type_float;
+	double type_double;
+};
+union numtype universal_compare(union numtype n1 , union numtype n2 , enum types type )
+{
+	union numtype i;
+	switch(type){
+	case Int : // int type
+		if(n1.type_int == n2.type_int)
+			i.type_int=0;
+		else if(n1.type_int == n2.type_int)
+			i.type_int=1;
+		else i.type_int=-1;
+		break;
+
+	case Float : // float type
+		if(n1.type_float == n2.type_float)
+			i.type_float=0;
+		else if(n1.type_float > n2.type_float)
+			i.type_float=1;
+		else i.type_float=-1;
+		break;
+
+	}
+	return i;
+}
+
+	int main(void)
+	{
+		union numtype n1,n2,R;
+		n1.type_int = 24;
+		n2.type_int = 54;
+		R =  universal_compare(n1,n2,Int);
+		printf("%d", R.type_int);
+
+
+		return 0;
+	}
