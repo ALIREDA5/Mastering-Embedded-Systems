@@ -20,7 +20,7 @@ SECTIONS
       } > Mem
   .bss :
       {
-      *(.bss)
+      *(.bss) *(.common)
       } > Mem
   . = . + 0x1000; 
   stack_top = . ;
