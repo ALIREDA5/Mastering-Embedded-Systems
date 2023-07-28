@@ -9,78 +9,80 @@ Linker script and memory map
 
                 0x00010000                . = 0x10000
 
-.startup        0x00010000       0x10
+.startup        0x00010000        0xc
  startup.o(.text)
- .text          0x00010000       0x10 startup.o
-                0x00010000                reset
+ .text          0x00010000        0xc startup.o
 
-.text           0x00010010       0x80
+.text           0x0001000c       0x78
  *(.text)
- .text          0x00010010       0x28 main.o
-                0x00010010                main
- .text          0x00010038       0x58 uart.o
-                0x00010038                UART_SEND_STRING
+ .text          0x0001000c       0x20 main.o
+                0x0001000c                main
+ .text          0x0001002c       0x58 uart.o
+                0x0001002c                UART_SEND_STRING
 
-.glue_7         0x00010090        0x0
- .glue_7        0x00010090        0x0 linker stubs
+.glue_7         0x00010084        0x0
+ .glue_7        0x00010084        0x0 linker stubs
 
-.glue_7t        0x00010090        0x0
- .glue_7t       0x00010090        0x0 linker stubs
+.glue_7t        0x00010084        0x0
+ .glue_7t       0x00010084        0x0 linker stubs
 
-.vfp11_veneer   0x00010090        0x0
- .vfp11_veneer  0x00010090        0x0 linker stubs
+.vfp11_veneer   0x00010084        0x0
+ .vfp11_veneer  0x00010084        0x0 linker stubs
 
-.v4_bx          0x00010090        0x0
- .v4_bx         0x00010090        0x0 linker stubs
+.v4_bx          0x00010084        0x0
+ .v4_bx         0x00010084        0x0 linker stubs
 
-.iplt           0x00010090        0x0
- .iplt          0x00010090        0x0 startup.o
+.iplt           0x00010084        0x0
+ .iplt          0x00010084        0x0 startup.o
 
-.rel.dyn        0x00010090        0x0
- .rel.iplt      0x00010090        0x0 startup.o
+.rel.dyn        0x00010084        0x0
+ .rel.iplt      0x00010084        0x0 startup.o
 
-.data           0x00010090       0x64
+.data           0x00010084       0x64
  *(.data)
- .data          0x00010090        0x0 startup.o
- .data          0x00010090       0x64 main.o
-                0x00010090                str
- .data          0x000100f4        0x0 uart.o
+ .data          0x00010084        0x0 startup.o
+ .data          0x00010084       0x64 main.o
+                0x00010084                str
+ .data          0x000100e8        0x0 uart.o
 
-.igot.plt       0x000100f4        0x0
- .igot.plt      0x000100f4        0x0 startup.o
+.igot.plt       0x000100e8        0x0
+ .igot.plt      0x000100e8        0x0 startup.o
 
-.bss            0x000100f4        0x0
+.bss            0x000100e8        0x0
  *(.bss)
- .bss           0x000100f4        0x0 startup.o
- .bss           0x000100f4        0x0 main.o
- .bss           0x000100f4        0x0 uart.o
+ .bss           0x000100e8        0x0 startup.o
+ .bss           0x000100e8        0x0 main.o
+ .bss           0x000100e8        0x0 uart.o
  *(.common)
-                0x000110f4                . = (. + 0x1000)
-                0x000110f4                stack_top = .
+                0x000110e8                . = (. + 0x1000)
+                0x000110e8                stack_top = .
 LOAD main.o
 LOAD startup.o
 LOAD uart.o
-OUTPUT(a.out elf32-littlearm)
+OUTPUT(embedded.elf elf32-littlearm)
 LOAD linker stubs
 
+.vectors        0x00000000       0x30
+ .vectors       0x00000000       0x30 startup.o
+
 .ARM.attributes
-                0x00000000       0x26
+                0x00000000       0x28
  .ARM.attributes
-                0x00000000       0x12 startup.o
+                0x00000000       0x16 startup.o
  .ARM.attributes
-                0x00000012       0x2a main.o
+                0x00000016       0x2c main.o
  .ARM.attributes
-                0x0000003c       0x2a uart.o
+                0x00000042       0x2c uart.o
 
 .comment        0x00000000       0x49
  .comment       0x00000000       0x49 main.o
                                  0x4a (size before relaxing)
  .comment       0x00000049       0x4a uart.o
 
-.debug_line     0x00000000       0xc4
- .debug_line    0x00000000       0x3a startup.o
- .debug_line    0x0000003a       0x3c main.o
- .debug_line    0x00000076       0x4e uart.o
+.debug_line     0x00000000       0xc5
+ .debug_line    0x00000000       0x3b startup.o
+ .debug_line    0x0000003b       0x3c main.o
+ .debug_line    0x00000077       0x4e uart.o
 
 .debug_info     0x00000000       0xf2
  .debug_info    0x00000000       0x26 startup.o
@@ -100,13 +102,13 @@ LOAD linker stubs
  .debug_aranges
                 0x00000040       0x20 uart.o
 
-.debug_str      0x00000000      0x15c
+.debug_str      0x00000000       0xff
  .debug_str     0x00000000       0x57 startup.o
- .debug_str     0x00000057       0x80 main.o
-                                 0xbf (size before relaxing)
- .debug_str     0x000000d7       0x85 uart.o
-                                 0xd2 (size before relaxing)
+ .debug_str     0x00000057       0x84 main.o
+                                 0xc3 (size before relaxing)
+ .debug_str     0x000000db       0x24 uart.o
+                                 0xce (size before relaxing)
 
-.debug_frame    0x00000000       0x64
- .debug_frame   0x00000000       0x34 main.o
- .debug_frame   0x00000034       0x30 uart.o
+.debug_frame    0x00000000       0x5c
+ .debug_frame   0x00000000       0x2c main.o
+ .debug_frame   0x0000002c       0x30 uart.o
