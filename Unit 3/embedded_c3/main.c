@@ -51,14 +51,14 @@ int main(void)
 {
 	RCC_APB2ENR |= RCC_IOPEN;
 	GPIOA_CRH  &= 0XFF0FFFFF;
-	 GPIOA_ODR |= 0X00200000;
+	 GPIOA_CRH |= 0X00200000;
 	 while(1)
 	 {
 		int i;
 		 R_ODR -> Pin.P_13 =1;
-		 for( i=0 ; i<1000 ; i++); // delay
+		 for( i=0 ; i<5000 ; i++); // delay
 		 R_ODR -> Pin.P_13 =0;
-		 for( i=0 ; i<1000 ; i++); // delay
+		 for( i=0 ; i<5000 ; i++); // delay
 	 }
 
 

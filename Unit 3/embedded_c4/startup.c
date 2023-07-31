@@ -19,17 +19,22 @@ void MM_Handler (void) __attribute__((weak,alias ("Default_Handler")));
 void Bus_Handler (void) __attribute__((weak,alias ("Default_Handler")));
 void Usage_Fault_Handler (void) __attribute__((weak,alias ("Default_Handler")));
 
-extern unsigned int stack_top; 
+/***** another approach to  specify stack top ******/
+// reserve stack size from bss
 
-uint32_t Vectors[] __attribute__((section(".vectors"))) =
+static unsigned long stack_top[256];
+
+// array of pointers to functions
+ 
+void (*p_fun_vectors[])()__attribute__((section(".vectors"))) =
 {
-(uint32_t) &stack_top,
-(uint32_t) &Rest_Handler,
-(uint32_t) &NMI_Handler,
-(uint32_t) &H_Fault_Handler,
-(uint32_t) &MM_Handler,
-(uint32_t) &Bus_Handler,
-(uint32_t) &Usage_Fault_Handler
+ (void(*)())  (stack_top + sizeof(stack_top)),
+ &Rest_Handler,
+ &NMI_Handler,
+ &H_Fault_Handler,
+ &MM_Handler,
+ &Bus_Handler,
+ &Usage_Fault_Handler
 };
 
 extern unsigned int _S_data;
