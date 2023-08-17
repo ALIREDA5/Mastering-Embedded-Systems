@@ -9,11 +9,11 @@
 #define LIST_H_
 
 // Entry
-//typedef struct Entry{
-//	char name[50];
-//	int ID;
-//	float height;
-//}Entry_t;
+/*typedef struct Entry{
+	char name[50];
+	int ID;
+	float height;
+}Entry_t;*/
 typedef int  Entry_t;
 
 // Node
@@ -42,6 +42,7 @@ List_un_init
 //List APIs
 void  List_Create(List_t *pq);
 void  List_Destroy(List_t *pq);
+void  List_Reverse(List_t *pq);
 // Insert element at any pos from index 0 to Max of List
 List_Status  List_Insert_Element(int pos, List_t *pq, Entry_t e);
 // Add element at top of List
@@ -50,6 +51,10 @@ List_Status  List_Delete_Element(int pos, List_t *pq, Entry_t *e);
 List_Status  List_Empty(List_t *pq);
 List_Status  List_Full(List_t *pq);
 int  List_Size(List_t *pq);
+Entry_t  List_Middle_Slow(List_t *pq);
+Entry_t  List_Middle_Fast(List_t *pq);
+// Floyd cycle-Finding Algorithm
+int List_Detect_Loop(List_t *pq);
 List_Status  List_Traverse(List_t *pq, void(*pf)(Entry_t e));
 
 #endif /* LIST_H_ */

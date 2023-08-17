@@ -19,7 +19,7 @@ int main()
 	List_t l;
 	List_Create(&l);
 	int i;
-	for(i=0; i<5; i++)
+	for(i=0; i<6; i++)
 	{
 		List_Add_Element(&l, i);
 		printf("e = %d \n", i);
@@ -33,7 +33,13 @@ int main()
 	printf(" \n");
 	List_Traverse(&l, &display);
 	printf("y = %d \n", y);
-	List_Destroy(&l);
+	y=List_Middle_Slow(&l);
+	printf("y middle s = %d \n", y);
+	y=List_Middle_Fast(&l);
+	printf("y middle f = %d \n", y);
+	List_Reverse(&l);
+	List_Traverse(&l, &display);
+	List_Detect_Loop(&l);
 	s=List_Size(&l);
 	printf("s = %d \n", s);
 	return 0;
