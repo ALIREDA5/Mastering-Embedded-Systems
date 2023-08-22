@@ -38,10 +38,15 @@ Online Embedded Systems Diploma From [Learn in Depth](https://www.learn-in-depth
   - Lecture 4 ![100%](https://progress-bar.dev/100)
   - Lecture 5 ![100%](https://progress-bar.dev/100)
 - [Unit 4: Data Strucutre](https://github.com/ALIREDA5/Mastering-Embedded-Systems/tree/main/First%20Term/Unit%204)
-  - Lecture 1 ![60%](https://progress-bar.dev/60)
-  - Lecture 2 ![0%](https://progress-bar.dev/0)
-  - Lecture 3 ![0%](https://progress-bar.dev/0)
+  - Lecture 1 ![100%](https://progress-bar.dev/100)
+  - Lecture 2 ![100%](https://progress-bar.dev/100)
+  - Lecture 3 ![100%](https://progress-bar.dev/100)
+- # [Unit 5: Projects covering First term](https://github.com/ALIREDA5/Mastering-Embedded-Systems/tree/main/First%20Term/Unit%205) ![100%](https://progress-bar.dev/100)
+
+  - project 1 : [pressure controller](https://github.com/ALIREDA5/Mastering-Embedded-Systems/tree/main/First%20Term/Unit%205/Project1(pressure%20controller)) ![100%](https://progress-bar.dev/100)
+
+  - project 2 : [student data base](https://github.com/ALIREDA5/Mastering-Embedded-Systems/tree/main/First%20Term/Unit%205/Project2%20(student%20data%20base)) ![100%](https://progress-bar.dev/100)
 
 #### First Term Exam ![0%](https://progress-bar.dev/0)
 
-#### First Term Project ![0%](https://progress-bar.dev/0)
+
