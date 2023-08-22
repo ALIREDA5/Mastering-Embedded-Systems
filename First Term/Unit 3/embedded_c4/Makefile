@@ -2,16 +2,19 @@
 CC= arm-none-eabi-
 CFLAGS=  -mcpu=cortex-m4 -gdwarf-2
 INCS=-I.
-LIBS=
+LIBS= stdint.h  stdio.h  
 SRC = $(wildcard *.c)
 OBJ = $(SRC: .c=.o)
 AS = $(wildcard *.s)
 ASOBJ = $(AS: .s=.o)
-Project_Name = lab4
+Project_Name =Pressure_Detection
 
 all: $(Project_Name).bin
 
 %.o: %.c
+	$(CC)gcc.exe  -c  $(CFLAGS) $(INCS)    $< -o $@
+
+%.o: %.h
 	$(CC)gcc.exe  -c  $(CFLAGS) $(INCS)    $< -o $@
 
 %.o: %.s
