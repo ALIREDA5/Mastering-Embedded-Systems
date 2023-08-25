@@ -16,7 +16,7 @@ Online Embedded Systems Diploma From [Learn in Depth](https://www.learn-in-depth
   
 ## Content & My Progress
 
-### First Term ![80%](https://progress-bar.dev/80?title=InProgress)
+### First Term ![90%](https://progress-bar.dev/90?title=InProgress)
 
 - Unit 1 (Diploma Prerequisites)
   - Understanding The System ![100%](https://progress-bar.dev/100)
@@ -32,13 +32,13 @@ Online Embedded Systems Diploma From [Learn in Depth](https://www.learn-in-depth
   - Lecture 7: Pre-processor directives in C ![100%](https://progress-bar.dev/100)
   - [Lecture 8: C Pointers](https://github.com/ALIREDA5/Mastering-Embedded-Systems/tree/main/First%20Term/Unit%202/Pointers) ![100%](https://progress-bar.dev/100)
 - [Unit 3: Embedded C](https://github.com/ALIREDA5/Mastering-Embedded-Systems/tree/main/First%20Term/Unit%203)
-  - Lecture 1 ![100%](https://progress-bar.dev/100)
-  - Lecture 2 ![100%](https://progress-bar.dev/100)
-  - Lecture 3 ![100%](https://progress-bar.dev/100)
-  - Lecture 4 ![100%](https://progress-bar.dev/100)
+  - [Lecture 1](https://github.com/ALIREDA5/Mastering-Embedded-Systems/tree/main/First%20Term/Unit%203/embedded_c1) ![100%](https://progress-bar.dev/100)
+  - [Lecture 2](https://github.com/ALIREDA5/Mastering-Embedded-Systems/tree/main/First%20Term/Unit%203/embedded_c2) ![100%](https://progress-bar.dev/100)
+  - [Lecture 3](https://github.com/ALIREDA5/Mastering-Embedded-Systems/tree/main/First%20Term/Unit%203/embedded_c3) ![100%](https://progress-bar.dev/100)
+  - [Lecture 4](https://github.com/ALIREDA5/Mastering-Embedded-Systems/tree/main/First%20Term/Unit%203/embedded_c4) ![100%](https://progress-bar.dev/100)
   - Lecture 5 ![100%](https://progress-bar.dev/100)
 - [Unit 4: Data Strucutre](https://github.com/ALIREDA5/Mastering-Embedded-Systems/tree/main/First%20Term/Unit%204)
-  - Lecture 1 ![100%](https://progress-bar.dev/100)
+  - [Lecture 1](https://github.com/ALIREDA5/Mastering-Embedded-Systems/tree/main/First%20Term/Unit%204) ![100%](https://progress-bar.dev/100)
   - Lecture 2 ![100%](https://progress-bar.dev/100)
   - Lecture 3 ![100%](https://progress-bar.dev/100)
 - # [Unit 5: Projects covering First term](https://github.com/ALIREDA5/Mastering-Embedded-Systems/tree/main/First%20Term/Unit%205) ![100%](https://progress-bar.dev/100)
