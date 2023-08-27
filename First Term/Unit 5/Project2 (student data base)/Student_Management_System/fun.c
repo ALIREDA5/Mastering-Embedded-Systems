@@ -21,6 +21,7 @@ Queue q;
 
 // ****************************** Sub functions ********************************* //
 
+// Function to display student details
 void display(Queue_Type* e)
 {
 	int i=0;
@@ -36,6 +37,7 @@ void display(Queue_Type* e)
 	}
 }
 
+// Function to display student details with compact formatting
 void display_c(Queue_Type* e)
 {
 
@@ -46,6 +48,7 @@ void display_c(Queue_Type* e)
 	DPrintf("\n ================ \n");
 }
 
+// Function to search for a student by their ID
 void ID_search(Queue_Type* e, void* ID)
 {
 	static int loop=0;
@@ -65,6 +68,7 @@ void ID_search(Queue_Type* e, void* ID)
 	}
 }
 
+// Function to delete a student by their ID
 void ID_Delete(Queue_Type* e, void* ID)
 {
 	static int loop=0;
@@ -73,7 +77,9 @@ void ID_Delete(Queue_Type* e, void* ID)
 	int id = *(int *)ID;
 	if(e->student_ID == id)
 	{
+		// swap the element you want to delete with first element in the queue
 		Queue_SWAP(&q, e);
+		// delete last element
 		Queue_Serve(&q, &a);
 		DPrintf("\n\t Element deleted ");
 		flag=1;
@@ -87,6 +93,7 @@ void ID_Delete(Queue_Type* e, void* ID)
 	}
 }
 
+// Function to update a student's information by their ID
 void ID_Update(Queue_Type* e, void* ID)
 {
 	static int loop=0;
@@ -153,6 +160,7 @@ void ID_Update(Queue_Type* e, void* ID)
 	}
 }
 
+// Function to search for students by their first name
 void Fname_search(Queue_Type* e, void* fname)
 {
 	int flag=0;
@@ -176,8 +184,7 @@ void Fname_search(Queue_Type* e, void* fname)
 	}
 }
 
-// fun to display students enrolled in a course assuming there is no course ID =0
-
+// fun to display students enrolled in a course
 void Course_search(Queue_Type* e, void* id_c)
 {
 	int i=0;
@@ -216,6 +223,7 @@ void Course_search(Queue_Type* e, void* id_c)
 
 // ******************************** Functions Used in Main program ********************************* //
 
+// Function to add student details from a file
 void ADD_Student_From_File()
 {
 	// Declare variable to hold the data
@@ -244,7 +252,7 @@ void ADD_Student_From_File()
 
 }
 
-
+// Function to add student details manually
 void ADD_Student_Manually()
 {
 	char c;
@@ -280,7 +288,7 @@ void ADD_Student_Manually()
 	DPrintf("\n\t[INFO] Student details are added successfully  ");
 }
 
-
+// Function to find a student by their ID
 void Find_student_by_ID()
 {
 	int id;
@@ -289,6 +297,7 @@ void Find_student_by_ID()
 	Queue_Traverse1(&q, &ID_search, &id);
 }
 
+// Function to find a student by their first name
 void Find_student_by_first_name()
 {
 	char fname[50];
@@ -297,6 +306,7 @@ void Find_student_by_first_name()
 	Queue_Traverse1(&q, &Fname_search, fname);
 }
 
+// Function to find all students in a course
 void Find_all_students_in_course()
 {
 	int course_id;
@@ -305,6 +315,7 @@ void Find_all_students_in_course()
 	Queue_Traverse1(&q, &Course_search, &course_id);
 }
 
+// Function to count the number of students
 void Count_of_students()
 {
 	int size=Queue_Size(&q);
@@ -313,7 +324,7 @@ void Count_of_students()
 	DPrintf("\n\t [INFO] You can %d more Students", MaxQueue-size);
 }
 
-
+// Function to update student information
 void Update_student()
 {
 	int id;
@@ -324,7 +335,7 @@ void Update_student()
 
 }
 
-
+// Function to delete a student
 void Delete_student()
 {
 	int id;
@@ -334,7 +345,7 @@ void Delete_student()
 	Queue_Traverse1(&q, &ID_Delete, &id);
 }
 
-
+// Function to show all student information
 void Show_all_information()
 {
 	if(Queue_Size(&q)!=0)
@@ -348,6 +359,8 @@ void Show_all_information()
 		DPrintf("\n [ERROR] : No Students found \n");
 	}
 }
+
+// Exit function
 void Exit()
 {
 	exit(0);
