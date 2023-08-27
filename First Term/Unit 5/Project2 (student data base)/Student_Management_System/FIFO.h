@@ -37,6 +37,7 @@ Queue_un_init
 Queue_Status  Queue_Create(Queue *pq);
 Queue_Status  Queue_Append(Queue *pq, Queue_Type e);
 Queue_Status  Queue_Serve(Queue *pq, Queue_Type *e);
+void  Queue_SWAP(Queue* pq, Queue_Type* e1);
 Queue_Status  Queue_Delete_Element( Queue *pq, Queue_Type *e, int pos);
 Queue_Status  Queue_Empty(Queue *pq);
 Queue_Status  Queue_clear(Queue *pq);

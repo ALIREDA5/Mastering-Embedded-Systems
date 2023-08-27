@@ -49,18 +49,16 @@ void display_c(Queue_Type* e)
 void ID_search(Queue_Type* e, void* ID)
 {
 	static int loop=0;
-	int count=0;
+	int flag=0;
 	int id = *(int *)ID;
-	while(loop < Queue_Size(&q))
+	if(e->student_ID == id)
 	{
-		if(e->student_ID == id)
-		{
-			display(e);
-			count++;
-		}
-		loop++;
+		display(e);
+		flag=1;
 	}
-	if( count == 0)
+	loop++;
+
+	if(loop == Queue_Size(&q) && flag == 0)
 	{
 		DPrintf("\n\t [ERROR] ID number not found ");
 		loop=0;
@@ -70,16 +68,19 @@ void ID_search(Queue_Type* e, void* ID)
 void ID_Delete(Queue_Type* e, void* ID)
 {
 	static int loop=0;
+	int flag=0;
+	Queue_Type a;
 	int id = *(int *)ID;
 	if(e->student_ID == id)
 	{
-		Queue_Delete_Element(&q, e, loop+1);
+		Queue_SWAP(&q, e);
+		Queue_Serve(&q, &a);
 		DPrintf("\n\t Element deleted ");
-		loop=0;
+		flag=1;
 	}
 	loop++;
 
-	if(loop == Queue_Size(&q))
+	if(loop == Queue_Size(&q) && flag==0)
 	{
 		DPrintf("\n\t [ERROR] ID number not found ");
 		loop=0;
@@ -89,61 +90,58 @@ void ID_Delete(Queue_Type* e, void* ID)
 void ID_Update(Queue_Type* e, void* ID)
 {
 	static int loop=0;
-	static int count=0;
+	int flag=0;
 	int id = *(int *)ID;
-	if(loop < Queue_Size(&q))
+	if(e->student_ID == id)
 	{
-		if(e->student_ID == id)
+		int m,n;
+		DPrintf("\n\t Choose one option to update \n");
+		DPrintf("\n 1: First Name \n");
+		DPrintf("\n 2: Last Name \n");
+		DPrintf("\n 3: Student ID \n");
+		DPrintf("\n 4: GPA \n");
+		DPrintf("\n 5: Courses \n");
+		DPrintf("\n - your option :");
+		scanf("%d", &m);
+		int i=0;
+		switch (m)
 		{
-			int m,n;
-			DPrintf("\n\t Choose one option to update \n");
-			DPrintf("\n 1: First Name \n");
-			DPrintf("\n 2: Last Name \n");
-			DPrintf("\n 3: Student ID \n");
-			DPrintf("\n 4: GPA \n");
-			DPrintf("\n 5: Courses \n");
-			DPrintf("\n - your option :");
-			scanf("%d", &m);
-			int i=0;
-			switch (m)
+		case 1 :
+			DPrintf("\n\t Enter First Name : ");
+			gets(e->fname);
+			flag++;
+			break;
+		case 2 :
+			DPrintf("\n\t Enter last Name : ");
+			gets(e->lname);
+			flag++;
+			break;
+		case 3 :
+			DPrintf("\n\t Enter Student ID : ");
+			scanf("%d", &(e->student_ID));
+			flag++;
+			break;
+		case 4 :
+			DPrintf("\n\t Enter GPA : ");
+			scanf("%f", &(e->GPA));
+			flag++;
+			break;
+		case 5 :
+			while(i<e->ncourses)
 			{
-			case 1 :
-				DPrintf("\n\t Enter First Name : ");
-				gets(e->fname);
-				count++;
-				break;
-			case 2 :
-				DPrintf("\n\t Enter last Name : ");
-				gets(e->lname);
-				count++;
-				break;
-			case 3 :
-				DPrintf("\n\t Enter Student ID : ");
-				scanf("%d", &(e->student_ID));
-				count++;
-				break;
-			case 4 :
-				DPrintf("\n\t Enter GPA : ");
-				scanf("%f", &(e->GPA));
-				count++;
-				break;
-			case 5 :
-				while(i<e->ncourses)
-				{
-					DPrintf("\n\t %d. Course ID : %d \n", i+1, e->course_ID[i]);
-					i++;
-				}
-				DPrintf("\n\t Enter your option : ");
-				scanf("%d", &n);
-				DPrintf("\n\t Enter your new course ID : ");
-				scanf("%d", &(e->course_ID[n]));
-				count++;
-				break;
+				DPrintf("\n\t %d. Course ID : %d \n", i+1, e->course_ID[i]);
+				i++;
 			}
+			DPrintf("\n\t Enter your option : ");
+			scanf("%d", &n);
+			DPrintf("\n\t Enter your new course ID : ");
+			scanf("%d", &(e->course_ID[n]));
+			flag++;
+			break;
 		}
-		loop++;
 	}
-	if(count==0)
+	loop++;
+	if(loop == Queue_Size(&q) && flag==0)
 	{
 		DPrintf("\n [ERROR] ID number not found ");
 		loop=0;
@@ -152,32 +150,29 @@ void ID_Update(Queue_Type* e, void* ID)
 	{
 		DPrintf("\n [INFO] Student info updated ");
 		loop=0;
-		count=0;
 	}
 }
 
 void Fname_search(Queue_Type* e, void* fname)
 {
-	int count=0;
+	int flag=0;
 	static int loop=0;
 	char* f_name=(char *)fname;
-	while(loop < Queue_Size(&q))
+	if(!strcmp(e->fname, f_name))
 	{
-		if(!strcmp(e->fname, f_name))
-		{
-			display(e);
-			count++;
-		}
-		loop++;
+		display(e);
+		flag++;
 	}
-	if( count == 0)
+	loop++;
+
+	if(loop == Queue_Size(&q) && flag == 0)
 	{
 		DPrintf("\n\t [ERROR] First name not found ");
 		loop=0;
 	}
-	else if(loop == Queue_Size(&q) && count != 0)
+	else if(loop == Queue_Size(&q) && flag != 0)
 	{
-		DPrintf("\n\t There are %d Students with the name %s ", count, f_name);
+		DPrintf("\n\t There are %d Students with the name %s ", flag, f_name);
 	}
 }
 
@@ -186,36 +181,33 @@ void Fname_search(Queue_Type* e, void* fname)
 void Course_search(Queue_Type* e, void* id_c)
 {
 	int i=0;
-	static int count=0;
+	int flag=0;
 	static int loop=0;
 	int id=*(int*)id_c;
-	if(loop<Queue_Size(&q))
+	while(i < e->ncourses)
 	{
-		while(i < e->ncourses)
+		if(e->course_ID[i] == id && flag==0)
 		{
-			if(e->course_ID[i] == id && count==0)
-			{
-				DPrintf("\n ==================== \n");
-				DPrintf("\n Students Details \n");
-				display_c(e);
-				count++;
-			}
-			else if(e->course_ID[i] == id && count!=0)
-			{
-				display_c(e);
-				count++;
-			}
-			i++;
+			DPrintf("\n ==================== \n");
+			DPrintf("\n Students Details \n");
+			display_c(e);
+			flag++;
 		}
-		loop++;
+		else if(e->course_ID[i] == id && flag!=0)
+		{
+			display_c(e);
+			flag++;
+		}
+		i++;
 	}
-	if(loop==Queue_Size(&q)&&count!=0)
+	loop++;
+
+	if(loop == Queue_Size(&q) && flag!=0)
 	{
-		DPrintf("\n [INFO] : Total number of Students enrolled :  %d \n", count);
-		count=0;
+		DPrintf("\n [INFO] : Total number of Students enrolled :  %d \n", flag);
 		loop=0;
 	}
-	else if(loop==Queue_Size(&q)&&count==0)
+	else if(loop == Queue_Size(&q) && flag==0)
 	{
 		DPrintf("\n [ERROR] : Course ID not found \n");
 		loop=0;
@@ -226,6 +218,28 @@ void Course_search(Queue_Type* e, void* id_c)
 
 void ADD_Student_From_File()
 {
+	// Declare variable to hold the data
+	Queue_Type x;
+
+	// Open the file for reading
+	FILE* file = fopen("try.txt", "r");
+
+	// Check if the file was opened successfully
+	if (file == NULL) {
+		printf("\n Unable to open the file.\n");
+		return ; // Exit with an error code
+	}
+
+	// Read data from the file until the end
+	while (fscanf(file, "%s %s %d %f %d %d %d %d", x.fname, x.lname, &x.student_ID, &x.GPA,  &x.ncourses, &x.course_ID[0], &x.course_ID[1], &x.course_ID[2]) != EOF) {
+		// add data to queue
+		Queue_Append(&q, x);
+		DPrintf("\n\t[INFO] Student details are added successfully  ");
+	}
+
+	// Close the file
+	fclose(file);
+
 
 
 }
@@ -315,7 +329,7 @@ void Delete_student()
 {
 	int id;
 	DPrintf("\n ==============================");
-	DPrintf("\n\t Enter ID number : \n");
+	DPrintf("\n\t Enter ID number : ");
 	scanf("%d", &id);
 	Queue_Traverse1(&q, &ID_Delete, &id);
 }
@@ -334,11 +348,7 @@ void Show_all_information()
 		DPrintf("\n [ERROR] : No Students found \n");
 	}
 }
-
-
 void Exit()
 {
-
-
+	exit(0);
 }
-
