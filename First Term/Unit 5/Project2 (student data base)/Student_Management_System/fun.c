@@ -54,8 +54,6 @@ void ID_search(Queue_Type* e, void* ID)
 	static int loop=0;
 	static int flag=0;
 	int id = *(int *)ID;
-	if(flag==1)
-		return;
 	if(e->student_ID == id)
 	{
 		display(e);
@@ -63,11 +61,21 @@ void ID_search(Queue_Type* e, void* ID)
 	}
 	loop++;
 
-	if(loop == Queue_Size(&q) && flag == 0)
-	{
-		DPrintf("\n\t [ERROR] ID number not found ");
-		loop=0;
-	}
+	if(flag==1)
+		{
+			return;
+		}
+		else if(loop != Queue_Size(&q))
+		{
+			return;
+		}
+		else if(loop == Queue_Size(&q))
+		{
+			flag=0;
+			loop=0;
+			DPrintf("\n\t [ERROR] ID number not found ");
+		}
+
 }
 
 // Function to delete a student by their ID
@@ -75,8 +83,6 @@ void ID_Delete(Queue_Type* e, void* ID)
 {
 	static int loop=0;
 	static int flag=0;
-	if(flag==1)
-		return;
 	Queue_Type a;
 	int id = *(int *)ID;
 	if(e->student_ID == id)
@@ -90,20 +96,29 @@ void ID_Delete(Queue_Type* e, void* ID)
 	}
 	loop++;
 
-	if(loop == Queue_Size(&q) && flag==0)
+	if(flag==1)
 	{
-		DPrintf("\n\t [ERROR] ID number not found ");
-		loop=0;
+		return;
 	}
+	else if(loop != Queue_Size(&q))
+	{
+		return;
+	}
+	else if(loop == Queue_Size(&q))
+	{
+		flag=0;
+		loop=0;
+		DPrintf("\n\t [ERROR] ID number not found ");
+	}
+
 }
 
 // Function to update a student's information by their ID
 void ID_Update(Queue_Type* e, void* ID)
 {
 	static int loop=0;
-	static int flag=0;
-	if(flag==1)
-		return;
+	int flag=0;
+
 	int id = *(int *)ID;
 	if(e->student_ID == id)
 	{
@@ -159,7 +174,7 @@ void ID_Update(Queue_Type* e, void* ID)
 		DPrintf("\n [ERROR] ID number not found ");
 		loop=0;
 	}
-	else
+	else if(flag==1)
 	{
 		DPrintf("\n [INFO] Student info updated ");
 		loop=0;
