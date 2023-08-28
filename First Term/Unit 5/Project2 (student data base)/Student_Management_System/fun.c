@@ -52,8 +52,10 @@ void display_c(Queue_Type* e)
 void ID_search(Queue_Type* e, void* ID)
 {
 	static int loop=0;
-	int flag=0;
+	static int flag=0;
 	int id = *(int *)ID;
+	if(flag==1)
+		return;
 	if(e->student_ID == id)
 	{
 		display(e);
@@ -72,7 +74,9 @@ void ID_search(Queue_Type* e, void* ID)
 void ID_Delete(Queue_Type* e, void* ID)
 {
 	static int loop=0;
-	int flag=0;
+	static int flag=0;
+	if(flag==1)
+		return;
 	Queue_Type a;
 	int id = *(int *)ID;
 	if(e->student_ID == id)
@@ -97,7 +101,9 @@ void ID_Delete(Queue_Type* e, void* ID)
 void ID_Update(Queue_Type* e, void* ID)
 {
 	static int loop=0;
-	int flag=0;
+	static int flag=0;
+	if(flag==1)
+		return;
 	int id = *(int *)ID;
 	if(e->student_ID == id)
 	{
@@ -163,7 +169,7 @@ void ID_Update(Queue_Type* e, void* ID)
 // Function to search for students by their first name
 void Fname_search(Queue_Type* e, void* fname)
 {
-	int flag=0;
+	static int flag=0;
 	static int loop=0;
 	char* f_name=(char *)fname;
 	if(!strcmp(e->fname, f_name))
@@ -181,6 +187,7 @@ void Fname_search(Queue_Type* e, void* fname)
 	else if(loop == Queue_Size(&q) && flag != 0)
 	{
 		DPrintf("\n\t There are %d Students with the name %s ", flag, f_name);
+		flag=0;
 	}
 }
 
@@ -188,7 +195,7 @@ void Fname_search(Queue_Type* e, void* fname)
 void Course_search(Queue_Type* e, void* id_c)
 {
 	int i=0;
-	int flag=0;
+	static int flag=0;
 	static int loop=0;
 	int id=*(int*)id_c;
 	while(i < e->ncourses)
