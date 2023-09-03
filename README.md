@@ -10,11 +10,11 @@ Online Embedded Systems Diploma From [Learn in Depth](https://www.learn-in-depth
 
 ## Achievements
 
-# First Star
+### First Star
 
-- First Term
+# First Term
   
-## Content & My Progress
+### Content & My Progress
 
 ### First Term ![100%](https://progress-bar.dev/100?title=InProgress)
 
@@ -48,5 +48,22 @@ Online Embedded Systems Diploma From [Learn in Depth](https://www.learn-in-depth
   - project 2 : [student data base](https://github.com/ALIREDA5/Mastering-Embedded-Systems/tree/main/First%20Term/Unit%205/Project2%20(student%20data%20base)) ![100%](https://progress-bar.dev/100)
 
 ## First Term Exam ![100%](https://progress-bar.dev/100)
+
+# Second Term
+ 
+### Content & My Progress
+
+### Second Term ![0%](https://progress-bar.dev/0?title=InProgress)
+- [Unit 6: MCU_Fundamentals](https://github.com/ALIREDA5/Mastering-Embedded-Systems/tree/main/Second%20Term/Unit%206)
+  - Lecture 1 ![0%](https://progress-bar.dev/0)
+  - Lecture 2 ![0%](https://progress-bar.dev/0)
+  - Lecture 3 ![0%](https://progress-bar.dev/0)
+  - Lecture 4 ![0%](https://progress-bar.dev/0)
+- [Unit 7: MCU Essential Peripherals](https://github.com/ALIREDA5/Mastering-Embedded-Systems/tree/main/Second%20Term/Unit%206)
+  - Lecture 1 ![0%](https://progress-bar.dev/0)
+  - Lecture 2 ![0%](https://progress-bar.dev/0)
+  - Lecture 3 ![0%](https://progress-bar.dev/0)
+  - Lecture 4 ![0%](https://progress-bar.dev/0)
+
 
 
