@@ -46,7 +46,7 @@ all: LAB2_Interrupt.elf secondary-outputs
 
 # Tool invocations
 LAB2_Interrupt.elf: $(OBJS) $(USER_OBJS) C:\Users\Ali\ Reda\STM32CubeIDE\workspace_1.4.0\LAB2_Interrupt\STM32F103C6TX_FLASH.ld
-	arm-none-eabi-gcc -o "LAB2_Interrupt.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\Ali Reda\STM32CubeIDE\workspace_1.4.0\LAB2_Interrupt\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB2_Interrupt.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -gdwarf-2 -o "LAB2_Interrupt.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\Ali Reda\STM32CubeIDE\workspace_1.4.0\LAB2_Interrupt\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB2_Interrupt.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
