@@ -53,7 +53,7 @@ Online Embedded Systems Diploma From [Learn in Depth](https://www.learn-in-depth
  
 ### Content & My Progress
 
-### Second Term ![0%](https://progress-bar.dev/0?title=InProgress)
+### Second Term ![25%](https://progress-bar.dev/0?title=InProgress)
 - [Unit 6: MCU_Fundamentals](https://github.com/ALIREDA5/Mastering-Embedded-Systems/tree/main/Second%20Term/Unit%206)
   - Lecture 1 ![100%](https://progress-bar.dev/100)
   - Lecture 2 ![100%](https://progress-bar.dev/100)
